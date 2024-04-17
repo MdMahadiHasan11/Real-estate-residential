@@ -1,9 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Register = () => {
+    const [registerError,setRegisterError]= useState('');
+    const [success,setSuccess]= useState('');
+    const [showPass,setShowPass]=useState(false);
 
     const {createUser}= useContext(AuthContext)
 
@@ -17,13 +20,32 @@ const Register = () => {
         const photoUrl = form.get("photoUrl");
         console.log(name,photoUrl , email,password)
 
+        // password check
+        if(password.length<6){
+            setRegisterError('Password should be at least 6 characters or longer');
+            return;
+        }
+        else if(!/[A-Z]/.test(password)){
+            setRegisterError('Your password have at least one uppercase character.')
+            return;
+        }
+        else if(!/[a-z]/.test(password)){
+            setRegisterError('Your password have at least one lowercase character.')
+            return;
+        }
+        // register error reset
+        setRegisterError('');
+        setSuccess('');
+
         // create user
         createUser(email,password)
         .then(result => {
             console.log(result.user)
+            setSuccess('User Created Successfully')
         })
         .catch(error =>{
             console.error(error);
+            setRegisterError(error.message);
         })
 
     }
@@ -62,7 +84,8 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                            <input type={showPass ? "text" : "password"} name="password" placeholder="password" className="input input-bordered" required />
+                            <span onClick={()=> setShowPass(!showPass)}>show</span>
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
@@ -73,6 +96,15 @@ const Register = () => {
                     </form>
 
                     <p>All have an account ? <Link to="/login" className="text-blue-500 font-bold" >Login</Link></p>
+
+                    <div>
+                        {
+                            registerError && <p className="text-red-500 font-bold">{registerError}</p>
+                        }
+                        {
+                            success && <p className="text-blue-500 font-bold">{success}</p>
+                        }
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,15 +1,57 @@
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { getAuth, GoogleAuthProvider, GithubAuthProvider,signInWithPopup } from "firebase/auth";
+import app from "../../firebase/firebase.config";
+
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext);
-    const location =useLocation();
+
+    const [user, setUser] = useState(null);
+    const auth = getAuth(app)
+    const githubProvider = new GithubAuthProvider();
+    const HandleGithubLogin = () => {
+        // auth, provider
+        signInWithPopup(auth,githubProvider)
+            .then(result => {
+                const logedInUser = result.user;
+                console.log(logedInUser)
+                setUser(logedInUser);
+            })
+            .catch(error => {
+                console.log('error', error.message)
+            })
+    }
+
+
+
+
+    const googleProvider = new GoogleAuthProvider();
+
+    // const { googleSignIn } = useContext(AuthContext);
+
+    const HandleGoogleLogin = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                const loginUser = result.user;
+                console.log(loginUser)
+                setUser(loginUser);
+            })
+            .catch(error => {
+                console.log('error', error.message)
+            })
+    }
+
+
+
+
+    const { signIn } = useContext(AuthContext);
+    const location = useLocation();
     const navigate = useNavigate();
 
 
-    const handleLogin = e =>{
+    const handleLogin = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
@@ -17,15 +59,15 @@ const Login = () => {
 
         // console.log(email)
         // console.log(password)
-        signIn(email,password)
-        .then(result =>{
-            console.log(result.user)
-            // navigate
-            navigate(location?.state? location.state : '/')
-        })
-        .catch(error =>{
-            console.error(error);
-        })
+        signIn(email, password)
+            .then(result => {
+                console.log(result.user)
+                // navigate
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.error(error);
+            })
 
     }
 
@@ -60,6 +102,21 @@ const Login = () => {
 
                     <p>Don`t have an account ? <Link to="/register" className="text-blue-500 font-bold" >Register</Link></p>
                 </div>
+
+                <div>
+                    <button onClick={HandleGoogleLogin} className="btn btn-secondary">
+                        google login
+                    </button>
+                    <button onClick={HandleGithubLogin} className="btn btn-secondary">
+                        github login
+                    </button>
+                    {/* {user && <div>
+                        <p>user: {user.displayName}</p>
+                    </div>} */}
+
+                </div>
+
+
             </div>
         </div>
     );
