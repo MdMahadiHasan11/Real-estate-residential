@@ -44,6 +44,9 @@ const Header = () => {
             </div>
             <div className="navbar-end ">
                 {
+                    user && <span>{user.email}</span>
+                }
+                {
                     user ? <button onClick={handleSignOut} className="btn bg-cyan-400 text-lg">
                         Sign Out
                     </button> : <button className="btn mr-4 bg-green-500 text-lg">

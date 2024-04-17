@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Register = () => {
     const [registerError, setRegisterError] = useState('');
@@ -23,15 +26,18 @@ const Register = () => {
 
         // password check
         if (password.length < 6) {
-            setRegisterError('Password should be at least 6 characters or longer');
+            // setRegisterError('Password should be at least 6 characters or longer');
+            toast.success("Password should be at least 6 characters or longer");
             return;
         }
         else if (!/[A-Z]/.test(password)) {
-            setRegisterError('Your password have at least one uppercase character.')
+            // setRegisterError('Your password have at least one uppercase character.')
+            toast.success("Your password have at least one uppercase character.");
             return;
         }
         else if (!/[a-z]/.test(password)) {
-            setRegisterError('Your password have at least one lowercase character.')
+            // setRegisterError('')
+            toast.success("Your password have at least one lowercase character.");
             return;
         }
         // register error reset
@@ -47,6 +53,7 @@ const Register = () => {
             .catch(error => {
                 console.error(error);
                 setRegisterError(error.message);
+                toast.success(registerError);
             })
 
     }
@@ -103,12 +110,27 @@ const Register = () => {
                     <p>All have an account ? <Link to="/login" className="text-blue-500 font-bold" >Login</Link></p>
 
                     <div>
-                        {
+                        {/* {
                             registerError && <p className="text-red-500 font-bold">{registerError}</p>
-                        }
-                        {
+                        } */}
+                        {/* {
                             success && <p className="text-blue-500 font-bold">{success}</p>
-                        }
+                        } */}
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+
+                        />
+                        {/* Same as */}
+                        <ToastContainer />
                     </div>
                 </div>
             </div>

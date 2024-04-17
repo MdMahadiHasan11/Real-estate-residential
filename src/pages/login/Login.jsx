@@ -1,11 +1,14 @@
-import { useContext,useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import { getAuth, GoogleAuthProvider, GithubAuthProvider,signInWithPopup } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
+    // const [errorLogin, setErrorLogin] = useState(true);
 
 
     const [user, setUser] = useState(null);
@@ -13,7 +16,7 @@ const Login = () => {
     const githubProvider = new GithubAuthProvider();
     const HandleGithubLogin = () => {
         // auth, provider
-        signInWithPopup(auth,githubProvider)
+        signInWithPopup(auth, githubProvider)
             .then(result => {
                 const logedInUser = result.user;
                 console.log(logedInUser)
@@ -21,6 +24,7 @@ const Login = () => {
             })
             .catch(error => {
                 console.log('error', error.message)
+
             })
     }
 
@@ -67,9 +71,14 @@ const Login = () => {
             })
             .catch(error => {
                 console.error(error);
+                // setErrorLogin(false);
+                toast.success("password or email not matching!!");
             })
 
     }
+
+
+    // const notify = () => toast("Don`t matching password!");
 
 
     return (
@@ -101,6 +110,24 @@ const Login = () => {
                     </form>
 
                     <p>Don`t have an account ? <Link to="/register" className="text-blue-500 font-bold" >Register</Link></p>
+                    <div>
+
+                        <ToastContainer
+                            position="top-right"
+                            autoClose={5000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+
+                        />
+                        {/* Same as */}
+                        <ToastContainer />
+                    </div>
                 </div>
 
                 <div>
