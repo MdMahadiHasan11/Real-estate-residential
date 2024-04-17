@@ -1,14 +1,15 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 const Register = () => {
-    const [registerError,setRegisterError]= useState('');
-    const [success,setSuccess]= useState('');
-    const [showPass,setShowPass]=useState(false);
+    const [registerError, setRegisterError] = useState('');
+    const [success, setSuccess] = useState('');
+    const [showPass, setShowPass] = useState(false);
 
-    const {createUser}= useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
 
     const handleRegister = e => {
         e.preventDefault();
@@ -18,18 +19,18 @@ const Register = () => {
         const email = form.get("email");
         const password = form.get("password");
         const photoUrl = form.get("photoUrl");
-        console.log(name,photoUrl , email,password)
+        console.log(name, photoUrl, email, password)
 
         // password check
-        if(password.length<6){
+        if (password.length < 6) {
             setRegisterError('Password should be at least 6 characters or longer');
             return;
         }
-        else if(!/[A-Z]/.test(password)){
+        else if (!/[A-Z]/.test(password)) {
             setRegisterError('Your password have at least one uppercase character.')
             return;
         }
-        else if(!/[a-z]/.test(password)){
+        else if (!/[a-z]/.test(password)) {
             setRegisterError('Your password have at least one lowercase character.')
             return;
         }
@@ -38,15 +39,15 @@ const Register = () => {
         setSuccess('');
 
         // create user
-        createUser(email,password)
-        .then(result => {
-            console.log(result.user)
-            setSuccess('User Created Successfully')
-        })
-        .catch(error =>{
-            console.error(error);
-            setRegisterError(error.message);
-        })
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+                setSuccess('User Created Successfully')
+            })
+            .catch(error => {
+                console.error(error);
+                setRegisterError(error.message);
+            })
 
     }
 
@@ -85,7 +86,11 @@ const Register = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type={showPass ? "text" : "password"} name="password" placeholder="password" className="input input-bordered" required />
-                            <span onClick={()=> setShowPass(!showPass)}>show</span>
+                            <span onClick={() => setShowPass(!showPass)}>
+                                {
+                                    showPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                                }
+                            </span>
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
