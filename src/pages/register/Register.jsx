@@ -5,6 +5,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import { useForm } from "react-hook-form";
 // import { useForm, SubmitHandler } from "react-hook-form"
 // import firebase from 'firebase/app';
@@ -17,7 +18,7 @@ const Register = () => {
     const [success, setSuccess] = useState('');
     const [showPass, setShowPass] = useState(false);
 
-    const { createUser, setUser } = useContext(AuthContext)
+    const { createUser, setUser, updateUserProfile } = useContext(AuthContext)
     const navigate = useNavigate();
 
     // const handleRegister = e => {
@@ -113,11 +114,16 @@ const Register = () => {
 
 
 
-        createUser(email, password, name, photoUrl)
-            .then(result => {
-                setUser(result.user)
-                navigate('/')
-                toast.success("Successfully Register");
+        createUser(email, password)
+            .then(() => {
+                updateUserProfile(name, photoUrl)
+                    .then(() => {
+                        toast.success("Successfully Register");
+                        // setUser(result.user)
+                        navigate('/')
+                    })
+
+
 
             })
             .catch(error => {

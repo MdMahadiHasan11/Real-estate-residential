@@ -7,6 +7,9 @@ import Register from "../pages/register/Register";
 import Details from "../pages/Home/Details/Details";
 import PrivateRoutes from "./PrivateRoutes";
 import UserProfile from "../pages/UserProfile/UserProfile";
+import Blogs from "../blogs/Blogs";
+import Contract from "../Contract/Contract";
+import UpdateProfile from "../UpdateProfile/UpdateProfile";
 
 
 
@@ -35,12 +38,24 @@ const router = createBrowserRouter([
                 element: <PrivateRoutes><UserProfile></UserProfile></PrivateRoutes>
             },
             {
+                path: '/stat',
+                element: <PrivateRoutes><Blogs></Blogs></PrivateRoutes>
+            },
+            {
                 path: '/login',
                 element: <Login></Login>,
             },
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/contract',
+                element: <Contract></Contract>
+            },
+            {
+                path: '/update',
+                element: <PrivateRoutes><UpdateProfile></UpdateProfile></PrivateRoutes>
             },
         ]
     },

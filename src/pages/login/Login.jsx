@@ -3,8 +3,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { getAuth, GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FcGoogle } from "react-icons/fc";
+import { BsGithub } from "react-icons/bs";
 
 
 const Login = () => {
@@ -27,6 +30,7 @@ const Login = () => {
             .then(result => {
                 const logedInUser = result.user;
                 console.log(logedInUser)
+                toast.success("Successfully Login");
                 setUser(logedInUser);
                 navigate(location?.state ? location.state : '/')
             })
@@ -100,6 +104,7 @@ const Login = () => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 const loginUser = result.user;
+                toast.success("Successfully Login");
                 console.log(loginUser)
                 setUser(loginUser);
                 navigate(location?.state ? location.state : '/')
@@ -125,6 +130,7 @@ const Login = () => {
         // console.log(password)
         signIn(email, password)
             .then(result => {
+                toast.success("Successfully Login");
                 console.log(result.user)
                 // navigate
                 navigate(location?.state ? location.state : '/')
@@ -189,13 +195,17 @@ const Login = () => {
                         <ToastContainer />
                     </div>
                 </div>
+                <hr className="border-t border-gray-300 my-4" />
 
-                <div>
-                    <button onClick={HandleGoogleLogin} className="btn btn-secondary">
-                        google login
+                <div className="text-center">
+                    <div>
+                        <p className="mt-5 mb-3">Or Sign up using</p>
+                    </div>
+                    <button onClick={HandleGoogleLogin} className=" text-3xl btn m-4">
+                    <FcGoogle />
                     </button>
-                    <button onClick={HandleGithubLogin} className="btn btn-secondary">
-                        github login
+                    <button onClick={HandleGithubLogin} className=" text-3xl btn ">
+                    <BsGithub />
                     </button>
                     {/* {user && <div>
                         <p>user: {user.displayName}</p>

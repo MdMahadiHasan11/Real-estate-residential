@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
+
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
@@ -18,11 +19,12 @@ const Header = () => {
         <li className="font-bold"><NavLink to="/">Home</NavLink></li>
         <li className="font-bold"><NavLink to="/update">Update Profile</NavLink></li>
         <li className="font-bold"><NavLink to="/contract">Contract Us</NavLink></li>
-        <li className="font-bold"><NavLink to="/blogs">Blogs</NavLink></li>
+        <li className="font-bold"><NavLink to="/stat">Stat</NavLink></li>
+        
 
     </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-200">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -34,7 +36,7 @@ const Header = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost font-bold text-3xl"> LivingNexus</a>
+                <div className="btn btn-ghost font-bold text-3xl"> LivingNexus</div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-lg">
@@ -48,11 +50,11 @@ const Header = () => {
 
 
                 {
-                    user && <span className="font-bold mr-4"><NavLink to="/userProfile">
+                    user && <span className="font-bold mr-4"><NavLink to="/">
                         <div className="relative group">
-                            <img src={ user.photoURL ?user.photoURL : "https://i.ibb.co/qW320MT/images.jpg" }  className="rounded-full w-12 h-12" />
-                            <div className="bottom-0 -left-16 transform text-green-500 rounded-full absolute inset-0  opacity-0 hover:opacity-100 transition-opacity duration-300 flex justify-center items-center  text-lg font-bold">
-                                <div>{user.displayName ? user.displayName :  "User"}</div>
+                            <img src={user.photoURL ? user.photoURL :`https://i.ibb.co/qW320MT/images.jpg`} className="rounded-full w-12 h-12" />
+                            <div className="-bottom-16 -left-24 transform text-green-500 rounded-full absolute inset-0  opacity-0 hover:opacity-100 transition-opacity duration-300 flex justify-center items-center  text-lg font-bold">
+                                <div>{user.displayName ? user.displayName : "User"}</div>
                             </div>
                         </div>
 

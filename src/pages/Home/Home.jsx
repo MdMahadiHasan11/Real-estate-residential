@@ -14,7 +14,9 @@ const Home = () => {
             <div>
                 <div className="container mx-auto">
                     <div>
-                        <p className="text-3xl font-bold rounded-2xl text-center bg-cyan-800 py-8 mt-6 mb-2 text-white">All Residential Estate</p>
+                        <p data-aos="fade-down"
+                            data-aos-easing="ease-out-cubic"
+                            data-aos-duration="1000" className="text-3xl font-bold rounded-2xl text-center bg-cyan-800 py-8 mt-6 mb-2 text-white">All Residential Estate</p>
                     </div>
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 ">
                         {
