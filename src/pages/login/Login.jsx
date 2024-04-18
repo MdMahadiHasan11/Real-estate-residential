@@ -8,25 +8,86 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
-    // const [errorLogin, setErrorLogin] = useState(true);
+    const { signIn } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
 
+
+
+     const { ssignInWithPopup } = useContext(AuthContext)
     const [user, setUser] = useState(null);
+
+
     const auth = getAuth(app)
     const githubProvider = new GithubAuthProvider();
+    
     const HandleGithubLogin = () => {
-        // auth, provider
-        signInWithPopup(auth, githubProvider)
+        ssignInWithPopup(auth, githubProvider)
             .then(result => {
                 const logedInUser = result.user;
                 console.log(logedInUser)
                 setUser(logedInUser);
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.log('error', error.message)
 
             })
     }
+
+
+    // 
+
+
+
+
+
+    // const [errorLogin, setErrorLogin] = useState(true);
+    // const { createUser } = useContext(AuthContext)
+
+    // const HandleGithubLogin = () => {
+
+    //     signInWithPopup(auth, githubProvider)
+    //         .then(result => {
+    //             const logedInUser = result.user;
+    //             console.log(logedInUser)
+    //             setUser(logedInUser);
+    //         })
+    //         .catch(error => {
+    //             console.log('error', error.message)
+
+    //         })
+
+
+    //         createUser(email, password ,displayName,photoURL)
+    //         .then(result => {
+    //             console.log(result)
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //             setRegisterError(error.message);
+    //             toast.success(registerError);
+    //         })
+    // }
+
+
+
+    // const [user, setUser] = useState(null);
+    // const auth = getAuth(app)
+    // const githubProvider = new GithubAuthProvider();
+    // const HandleGithubLogin = () => {
+    //     signInWithPopup(auth, githubProvider)
+    //         .then(result => {
+    //             const logedInUser = result.user;
+    //             console.log(logedInUser)
+    //             setUser(logedInUser);
+    //         })
+    //         .catch(error => {
+    //             console.log('error', error.message)
+
+    //         })
+    // }
 
 
 
@@ -41,6 +102,7 @@ const Login = () => {
                 const loginUser = result.user;
                 console.log(loginUser)
                 setUser(loginUser);
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.log('error', error.message)
@@ -50,9 +112,7 @@ const Login = () => {
 
 
 
-    const { signIn } = useContext(AuthContext);
-    const location = useLocation();
-    const navigate = useNavigate();
+    
 
 
     const handleLogin = e => {

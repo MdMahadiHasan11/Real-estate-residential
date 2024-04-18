@@ -4,21 +4,22 @@ import { AuthContext } from "../providers/AuthProvider";
 
 const Header = () => {
 
-    const { user , logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
-    const handleSignOut = () =>{
+    const handleSignOut = () => {
         logOut()
-        .then()
-        .catch()
+            .then()
+            .catch()
     }
+    console.log(user);
 
     const links = < >
 
         <li className="font-bold"><NavLink to="/">Home</NavLink></li>
-        <li className="font-bold"><NavLink to="/listedBook">Listed Books</NavLink></li>
-        <li className="font-bold"><NavLink to="/PagesToRead">Pages to Read</NavLink></li>
-        <li className="font-bold"><NavLink to="/NewBooks">New Books</NavLink></li>
-        <li className="font-bold"><NavLink to="/AllView">All View Books</NavLink></li>
+        <li className="font-bold"><NavLink to="/update">Update Profile</NavLink></li>
+        <li className="font-bold"><NavLink to="/contract">Contract Us</NavLink></li>
+        <li className="font-bold"><NavLink to="/blogs">Blogs</NavLink></li>
+
     </>
     return (
         <div className="navbar bg-base-100">
@@ -33,7 +34,7 @@ const Header = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost font-bold text-3xl"> MyBookshelf</a>
+                <a className="btn btn-ghost font-bold text-3xl"> LivingNexus</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-lg">
@@ -43,23 +44,43 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end ">
-                {
-                    user && <span>{user.email}</span>
-                }
-                {
-                    user ? <button onClick={handleSignOut} className="btn bg-cyan-400 text-lg">
-                        Sign Out
-                    </button> : <button className="btn mr-4 bg-green-500 text-lg">
-                        <NavLink to="/login">Login</NavLink>
-                    </button>
-                }
-                <button className="btn mr-4 bg-green-500 text-lg">
-                    <NavLink to="/login">Login</NavLink>
-                </button>
 
-                <button className="btn bg-cyan-400 text-lg">
-                    <NavLink to="/register">Register</NavLink>
-                </button>
+
+
+                {
+                    user && <span className="font-bold mr-4"><NavLink to="/userProfile">
+                        <div className="relative group">
+                            <img src={user.photoURL}  className="rounded-full w-12 h-12" />
+                            <div className="bottom-0 -left-16 transform text-green-500 rounded-full absolute inset-0  opacity-0 hover:opacity-100 transition-opacity duration-300 flex justify-center items-center  text-lg font-bold">
+                                <div>{user.displayName}</div>
+                            </div>
+                        </div>
+
+                    </NavLink></span>
+                }
+
+                {/* {
+                    user && <span className="font-bold mr-4"><NavLink to="/userProfile"><img className="rounded-full w-12 h-12" src={user.photoURL} alt="" /></NavLink></span>
+                } */}
+                {
+                    user ? <button onClick={handleSignOut} className="btn bg-cyan-400 text-lg mr-4">
+                        Log Out
+                    </button> : <span>
+                        <button className="btn mr-4 bg-green-500 text-lg">
+                            <NavLink to="/login">Login</NavLink>
+                        </button>
+                        <button className="btn bg-cyan-400 text-lg">
+                            <NavLink to="/register">Register</NavLink>
+                        </button>
+
+                    </span>
+
+                }
+                {/* <button className="btn mr-4 bg-green-500 text-lg">
+                    <NavLink to="/login">Login</NavLink>
+                </button> */}
+
+
             </div>
         </div>
     );

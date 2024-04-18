@@ -1,81 +1,74 @@
 [
-    {
-      "bookId": 1,
-      "bookName": "1984",
-      "author": "George Orwell",
-      "image": "https://i.ibb.co/0YfVDBY/book2.png",
-      "review": "A haunting depiction of a dystopian society where individualism is suppressed.",
-      "totalPages": 328,
-      "rating": 4.5,
-      "category": "Fiction",
-      "tags": ["Dystopian", "Political"],
-      "publisher": "Secker & Warburg",
-      "yearOfPublishing": 1949
-    },
-    {
-      "bookId": 2,
-      "bookName": "To Kill a Mockingbird",
-      "author": "Harper Lee",
-      "image": "https://i.ibb.co/0YfVDBY/book2.png",
-      "review": "A timeless classic tackling themes of racial injustice and moral growth.",
-      "totalPages": 281,
-      "rating": 4.8,
-      "category": "Fiction",
-      "tags": ["Coming-of-age", "Legal drama"],
-      "publisher": "J. B. Lippincott & Co.",
-      "yearOfPublishing": 1960
-    },
-    {
-      "bookId": 3,
-      "bookName": "The Great Gatsby",
-      "author": "F. Scott Fitzgerald",
-      "image": "https://i.ibb.co/C6wwfPK/book3.png",
-      "review": "A captivating portrayal of the Jazz Age and the American Dream.",
-      "totalPages": 180,
-      "rating": 4.6,
-      "category": "Fiction",
-      "tags": ["Romance", "Tragedy"],
-      "publisher": "Charles Scribner's Sons",
-      "yearOfPublishing": 1925
-    },
-    {
-      "bookId": 4,
-      "bookName": "The Catcher in the Rye",
-      "author": "J.D. Salinger",
-      "image": "https://i.ibb.co/0YfVDBY/book2.png",
-      "review": "An influential novel exploring teenage angst and alienation.",
-      "totalPages": 224,
-      "rating": 4.3,
-      "category": "Fiction",
-      "tags": ["Coming-of-age", "Existential"],
-      "publisher": "Little, Brown and Company",
-      "yearOfPublishing": 1951
-    },
-    {
-      "bookId": 5,
-      "bookName": "The Hobbit",
-      "author": "J.R.R. Tolkien",
-      "image": "https://i.ibb.co/C6wwfPK/book3.png",
-      "review": "A charming adventure tale set in the magical world of Middle-earth.",
-      "totalPages": 310,
-      "rating": 4.7,
-      "category": "Fantasy",
-      "tags": ["Adventure", "Quest"],
-      "publisher": "George Allen & Unwin",
-      "yearOfPublishing": 1937
-    },
-    {
-      "bookId": 6,
-      "bookName": "Pride and Prejudice",
-      "author": "Jane Austen",
-      "image": "https://i.ibb.co/0YfVDBY/book2.png",
-      "review": "A delightful romance novel with timeless appeal.",
-      "totalPages": 279,
-      "rating": 4.9,
-      "category": "Fiction",
-      "tags": ["Romance", "Comedy of manners"],
-      "publisher": "T. Egerton, Whitehall",
-      "yearOfPublishing": 1813
-    }
-  ]
-  
+  {
+    "image_url": "https://i.ibb.co/XF3R5Yq/i1.jpg",
+    "estate_title": "Modern Loft Apartment Views",
+    "id": "1001",
+    "segment_name": "Residential",
+    "description": "This stylish loft apartment features an open-concept layout with floor-to-ceiling windows, offering abundant natural light. Enjoy urban living at its finest with sleek finishes and access to trendy cafes and shops nearby. Ideal for young professionals seeking a contemporary lifestyle.",
+    "price": "$800,000",
+    "status": "sale",
+    "area": "1200 sq ft",
+    "location": "Downtown Metropolis",
+    "facilities": ["living room", "kitchen", "gym"]
+  },
+  {
+    "image_url": "https://i.ibb.co/sHnS6rB/i2.jpg",
+    "estate_title": "Cozy Townhouse in the Suburbs",
+    "id": "1002",
+    "segment_name": "Residential",
+    "description": "Charming townhouse nestled in a quiet suburban neighborhood. This home offers comfortable living spaces, a private backyard, and is conveniently located near parks and schools. Perfect for families looking for a peaceful retreat.",
+    "price": "$450,000",
+    "status": "sale",
+    "area": "1800 sq ft",
+    "location": "Suburban Grove",
+    "facilities": ["living room", "kitchen", "backyard"]
+  },
+  {
+    "image_url": "https://i.ibb.co/tMWjrP9/i3.jpg",
+    "estate_title": "Seaside Villa with Panoramic",
+    "id": "1003",
+    "segment_name": "Residential",
+    "description": "Experience luxury living in this exquisite seaside villa boasting panoramic ocean views. With spacious interiors, a private pool, and direct beach access, this property offers the ultimate coastal lifestyle.",
+    "price": "$2,000,000",
+    "status": "sale",
+    "area": "5000 sq ft",
+    "location": "Coastal Paradise",
+    "facilities": ["living room", "swimming pool", "beach access"]
+  },
+  {
+    "image_url": "https://i.ibb.co/bB1dpZv/33.jpg",
+    "estate_title": "Rustic Country Cottage Views",
+    "id": "1004",
+    "segment_name": "Residential",
+    "description": "Escape to the countryside with this charming rustic cottage. Surrounded by lush greenery and tranquil gardens, this cozy retreat offers a peaceful sanctuary away from the hustle and bustle of city life.",
+    "price": "$300,000",
+    "status": "sale",
+    "area": "1000 sq ft",
+    "location": "Rural Haven",
+    "facilities": ["living room", "kitchen", "garden"]
+  },
+  {
+    "image_url": "https://i.ibb.co/sHnS6rB/i2.jpg",
+    "estate_title": "Luxurious Penthouse in the Sky",
+    "id": "1005",
+    "segment_name": "Residential",
+    "description": "Indulge in the height of luxury with this stunning penthouse apartment offering breathtaking city views. With sleek modern design and top-of-the-line amenities, this penthouse redefines urban living.",
+    "price": "$1,500,000",
+    "status": "sale",
+    "area": "3000 sq ft",
+    "location": "Skyline Heights",
+    "facilities": ["living room", "kitchen", "rooftop terrace"]
+  },
+  {
+    "image_url": "https://i.ibb.co/tMWjrP9/i3.jpg",
+    "estate_title": "Elegant Family Home Views",
+    "id": "1006",
+    "segment_name": "Residential",
+    "description": "This elegant family home offers spacious interiors and a beautifully landscaped backyard, perfect for entertaining guests or relaxing outdoors. Located in a prestigious neighborhood, it combines comfort and sophistication.",
+    "price": "$600,000",
+    "status": "sale",
+    "area": "2500 sq ft",
+    "location": "Prestige Estates",
+    "facilities": ["living room", "kitchen", "backyard"]
+  }
+]
