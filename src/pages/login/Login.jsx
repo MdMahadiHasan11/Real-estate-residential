@@ -18,13 +18,13 @@ const Login = () => {
 
 
 
-     const { ssignInWithPopup } = useContext(AuthContext)
+    const { ssignInWithPopup } = useContext(AuthContext)
     const [user, setUser] = useState(null);
 
 
     const auth = getAuth(app)
     const githubProvider = new GithubAuthProvider();
-    
+
     const HandleGithubLogin = () => {
         ssignInWithPopup(auth, githubProvider)
             .then(result => {
@@ -117,7 +117,7 @@ const Login = () => {
 
 
 
-    
+
 
 
     const handleLogin = e => {
@@ -151,7 +151,9 @@ const Login = () => {
         <div className="">
             <div>
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
+                    <div className="flex justify-center items-center"
+                    ><h1 className="text-5xl font-bold">Login now!</h1></div>
+
 
 
                     <form onSubmit={handleLogin} className="lg:w-1/2 md:w-3/4 mx-auto">
@@ -174,8 +176,9 @@ const Login = () => {
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>
+                    <div className="flex justify-center items-center"
+                    ><p>Don`t have an account ? <Link to="/register" className="text-blue-500 font-bold" >Register</Link></p></div>
 
-                    <p>Don`t have an account ? <Link to="/register" className="text-blue-500 font-bold" >Register</Link></p>
                     <div>
 
                         <ToastContainer
@@ -202,10 +205,10 @@ const Login = () => {
                         <p className="mt-5 mb-3">Or Sign up using</p>
                     </div>
                     <button onClick={HandleGoogleLogin} className=" text-3xl btn m-4">
-                    <FcGoogle />
+                        <FcGoogle />
                     </button>
                     <button onClick={HandleGithubLogin} className=" text-3xl btn ">
-                    <BsGithub />
+                        <BsGithub />
                     </button>
                     {/* {user && <div>
                         <p>user: {user.displayName}</p>

@@ -137,8 +137,9 @@ const Register = () => {
         <div className="">
             <div>
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Register!</h1>
-
+                    <div className="flex justify-center items-center">
+                        <h1 className="text-5xl font-bold">Register!</h1>
+                    </div>
 
                     <form onSubmit={handleSubmit(onSubmit)} className="lg:w-1/2 md:w-3/4 mx-auto">
 
@@ -183,9 +184,9 @@ const Register = () => {
                             <button className="btn btn-primary">Register</button>
                         </div>
                     </form>
-
-                    <p>All have an account ? <Link to="/login" className="text-blue-500 font-bold" >Login</Link></p>
-
+                    <div className="flex justify-center items-center">
+                        <p>All have an account ? <Link to="/login" className="text-blue-500 font-bold" >Login</Link></p>
+                    </div>
                     <div>
                         {/* {
                             registerError && <p className="text-red-500 font-bold">{registerError}</p>
