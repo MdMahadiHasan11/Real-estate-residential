@@ -50,9 +50,9 @@ const Header = () => {
                 {
                     user && <span className="font-bold mr-4"><NavLink to="/userProfile">
                         <div className="relative group">
-                            <img src={user.photoURL}  className="rounded-full w-12 h-12" />
+                            <img src={ user.photoURL ?user.photoURL : "https://i.ibb.co/qW320MT/images.jpg" }  className="rounded-full w-12 h-12" />
                             <div className="bottom-0 -left-16 transform text-green-500 rounded-full absolute inset-0  opacity-0 hover:opacity-100 transition-opacity duration-300 flex justify-center items-center  text-lg font-bold">
-                                <div>{user.displayName}</div>
+                                <div>{user.displayName ? user.displayName :  "User"}</div>
                             </div>
                         </div>
 
