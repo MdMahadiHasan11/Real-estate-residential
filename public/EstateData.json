@@ -46,29 +46,5 @@
     "area": "1000 sq ft",
     "location": "Rural Haven",
     "facilities": ["living room", "kitchen", "garden"]
-  },
-  {
-    "image_url": "https://i.ibb.co/sHnS6rB/i2.jpg",
-    "estate_title": "Luxurious Penthouse in the Sky",
-    "id": "1005",
-    "segment_name": "Residential",
-    "description": "Indulge in the height of luxury with this stunning penthouse apartment offering breathtaking city views. With sleek modern design and top-of-the-line amenities, this penthouse redefines urban living.",
-    "price": "$1,500,000",
-    "status": "sale",
-    "area": "3000 sq ft",
-    "location": "Skyline Heights",
-    "facilities": ["living room", "kitchen", "rooftop terrace"]
-  },
-  {
-    "image_url": "https://i.ibb.co/tMWjrP9/i3.jpg",
-    "estate_title": "Elegant Family Home Views",
-    "id": "1006",
-    "segment_name": "Residential",
-    "description": "This elegant family home offers spacious interiors and a beautifully landscaped backyard, perfect for entertaining guests or relaxing outdoors. Located in a prestigious neighborhood, it combines comfort and sophistication.",
-    "price": "$600,000",
-    "status": "sale",
-    "area": "2500 sq ft",
-    "location": "Prestige Estates",
-    "facilities": ["living room", "kitchen", "backyard"]
   }
 ]
