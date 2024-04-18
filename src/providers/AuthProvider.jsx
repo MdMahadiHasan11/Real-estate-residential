@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, GithubAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, signInWithPopup, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
 
@@ -41,7 +42,7 @@ const AuthProvider = ({ children }) => {
         }).then(() => {
             // Profile updated!
             // ...
-        }).catch((error) => {
+        }).catch(() => {
             // An error occurred
             // ...
         });
@@ -97,5 +98,9 @@ const AuthProvider = ({ children }) => {
         </AuthContext.Provider>
     );
 };
+AuthProvider.propTypes = {
+    children: PropTypes.node,
+}
+
 
 export default AuthProvider;
